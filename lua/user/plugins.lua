@@ -116,8 +116,6 @@ return packer.startup(function(use)
   --lsp formating
   use "lukas-reineke/lsp-format.nvim"
   -- Automatically set up your configuration after cloning packer.nvim
-  use('neovim/nvim-lspconfig')
-  use('jose-elias-alvarez/null-ls.nvim')
   use('MunifTanjim/prettier.nvim') -- Put this at the end after all plugins
 
   --fuigitive
@@ -125,4 +123,9 @@ return packer.startup(function(use)
   if PACKER_BOOTSTRAP then
     require("packer").sync()
   end
+
+
+  use { 'codota/tabnine-nvim', run = "./dl_binaries.sh" }
+
+
 end)

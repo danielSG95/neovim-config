@@ -48,7 +48,8 @@ keymap("n", "<S-q>", "<cmd>Bdelete!<CR>", opts)
 
 -- Better paste
 keymap("v", "p", '"_dP', opts)
-keymap("v", "\"0p", "pp" )
+keymap("v", "P", "o<esc>p")
+
 
 -- Insert --
 -- Press jk fast to enter

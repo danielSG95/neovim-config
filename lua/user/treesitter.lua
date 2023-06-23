@@ -9,15 +9,34 @@ if not status_ok then
 end
 
 configs.setup({
-  ensure_installed = { "lua", "markdown", "markdown_inline", "bash", "python", "typescript", "javascript", "css", "html", "tsx" }, -- put the language you want in this array
+  ensure_installed = { "lua", "markdown", "markdown_inline", "bash", "python", "typescript", "javascript", "css", "html", "tsx", "sql" }, -- put the language you want in this array
   -- ensure_installed = "all", -- one of "all" or a list of languages
 	ignore_install = { "" }, -- List of parsers to ignore installing
 	sync_install = true, -- install languages synchronously (only applied to `ensure_installed`)
   
   highlight = {
-		enable = true, -- false will disable the whole extension
-		disable = { "css" }, -- list of language that will be disabled
-	},
+	enable = true,
+  disable = { "css" },
+  additional_vim_regex_highlighting = false,
+  refactor = {
+    highlight_definitions = { enable = true },
+    highlight_current_scope = { enable = false },
+    smart_rename = {
+      enable = true,
+      keymaps = {
+        smart_rename = "grr",
+      },
+    },
+    navigation = {
+      enable = true,
+      keymaps = {
+        goto_definition = "gnd",
+        list_definitions = "gnD",
+        goto_next_usage = "<a-*>",
+        goto_previous_usage = "<a-#>",
+      },
+    },
+  },},
 	autopairs = {
 		enable = true,
 	},
